@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css">
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        
+        <script src="https://code.jquery.com/jquery-2.1.4.js" integrity="sha256-siFczlgw4jULnUICcdm9gjQPZkw/YPDqhQ9+nAOScE4=" crossorigin="anonymous"></script>       
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        
+        <title>Lunchmap - Register</title>
+    </head>
+
+
+<body>
+ <script>
+$(document).ready(function(){
+
+    $("#button_submit_register").click(function(){
+        var username = $("#un").val();
+        var password = $("#pw").val();
+        var name = $("#name").val();
+        var url = "http://korpisoturit.com/backend/register.php?user=" + username + "&pass=" + password + "&name=" + name +"";
+        $.getJSON(url, function(result){
+            if (result == "true"){
+                $("#register_message").html ("<font color='green'>Registration successful</font>");
+                $("#button_submit_register").prop("disabled", true);
+            }
+            else if (result == "false") {
+                $("#register_message").html ("<font color='red'>There is already account with that username</font>");
+            }
+        });
+    });
+});
+</script>
+        <div data-role="page" id="register_page" data-theme="a">
+
+        <div data-role="main" class="ui-content tausta">
+                
+                    <div id="register_message"></div>
+                    <div style="padding:10px 20px;">
+                        <h3>Select username and password</h3>
+                        <div id="error_message"></div>
+                        <label for="un" class="ui-hidden-accessible">Username:</label>
+                        <input type="text" name="user" id="un" value="" placeholder="Username" data-theme="a" required>
+                        <label for="pw" class="ui-hidden-accessible">Password:</label>
+                        <input type="password" name="pass" id="pw" value="" placeholder="Password" data-theme="a" required>
+                        <label for="name" class="ui-hidden-accessible">Name:</label>
+                        <input type="Text" name="name" id="name" value="" placeholder="Name" data-theme="a" required>
+                        <button id="button_submit_register" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check">Register new account</button>
+                    </div>
+                
+        <button id="button_back_to_main" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-btn-icon-back ui-icon-check">Back</button>
+
+        </div>            
+        
+        </div>
+    
+</body>
+</html>

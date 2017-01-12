@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />          
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        
+        <script src="https://code.jquery.com/jquery-2.1.4.js" integrity="sha256-siFczlgw4jULnUICcdm9gjQPZkw/YPDqhQ9+nAOScE4="    crossorigin="anonymous"></script>       
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        
+        <title>Lunchmap</title>
+    </head>
+<script>
+$(document).ready(function() { 
+// When document is done loading, populate settings. 
+    populateSettings();
+});
+</script>
+
+<body>
+    <div data-role="page" id="main_settings">
+
+        <div role="main" class="ui-content">
+        <form id="checkboxes" data-inset="true">   
+            <label for="settings_title"><span class="tausta ui-corner-all" id="settings_title">Places you want to eat</span></label>     
+            <fieldset data-role="controlgroup" data-iconpos="right" data-inset="true">            
+                    <input name="bar" id="bar" type="checkbox" value="bar">
+                    <label for="bar">Bar</label>
+                    <input name="restaurant" id="restaurant" type="checkbox" value="restaurant">
+                    <label for="restaurant">Restaurant</label>
+                    <input name="cafe" id="cafe" type="checkbox" value="cafe">
+                    <label for="cafe">Cafe</label>
+                    <input name="bakery" id="bakery" type="checkbox" value="bakery">
+                    <label for="bakery">Bakery</label>
+
+                </fieldset>
+            <div class="ui-field-contain" >
+                <label for="search_range"><span class="tausta ui-corner-all">Search Range</span></label>
+                <input name="search_range" data-highlight="true" id="search_range" min="300" max="1000" step="10" value=500 type="range">
+            </div>
+            </form>
+            <button class="ui-btn ui-icon-edit ui-btn-icon-right" id="button_save_settings">Save settings</button>
+        </div>
+
+
+    </div>
+</body>
+</html>
+
+
+
+
